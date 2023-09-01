@@ -1,5 +1,4 @@
-const path = require('path');
-
+// eslint-disable-next-line
 module.exports = {
   module: {
     rules: [
