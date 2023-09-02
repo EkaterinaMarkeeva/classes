@@ -1,40 +1,40 @@
-import Character from '../character';
+import Daemon from '../daemon';
 
 test.each([
-  ['Alise', 'Magician', 
+  ['Alise', 'Daemon', 
     {
       name: 'Alise', 
-      type: 'Magician', 
+      type: 'Daemon', 
       health: 100,
       level: 1,
       attack: 10,
       defence: 40
     }
   ],
-  ['Dima', 'Zombie',
+  ['Dima', undefined,
     {
       name: 'Dima', 
-      type: 'Zombie', 
+      type: 'Daemon', 
       health: 100,
       level: 1,
-      attack: 40,
-      defence: 10
+      attack: 10,
+      defence: 40
     }
   ]
 ])// eslint-disable-next-line
 ('testin Character class with %s name and %s type', (name, type, expected) => {
-  const result = new Character(name, type);
+  const result = new Daemon(name, type);
   expect(result).toEqual(expected);
 });
 
 test.each([
-  ['A', 'Magician', new Error("Имя должно быть не менее 2 и не более 10 символов")],
-  ['Abrakadabra', 'Zombie', new Error("Имя должно быть не менее 2 и не более 10 символов")],
+  ['A', 'Daemon', new Error("Имя должно быть не менее 2 и не более 10 символов")],
+  ['Abrakadabra', 'Daemon', new Error("Имя должно быть не менее 2 и не более 10 символов")],
   ['Zombie', 'Abrakadabra', new Error("Тип не найден")]
 ])// eslint-disable-next-line
 ('testin throws Error with %s name and %s type', (name, type, expected) => {
   function result() {
-    new Character(name, type);
+    new Daemon(name, type);
   }
   expect(result).toThrow(expected);
 });
