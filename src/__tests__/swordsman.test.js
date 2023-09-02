@@ -27,14 +27,14 @@ test.each([
   expect(result).toEqual(expected);
 });
 
-// test.each([
-//   ['A', 'Swordsman', new Error("Имя должно быть не менее 2 и не более 10 символов")],
-//   ['Abrakadabra', 'Swordsman', new Error("Имя должно быть не менее 2 и не более 10 символов")],
-//   ['Zombie', 'Abrakadabra', new Error("Тип не найден")]
-// ])// eslint-disable-next-line
-// ('testin throws Error with %s name and %s type', (name, type, expected) => {
-//   function result() {
-//     new Swordsman(name, type);
-//   }
-//   expect(result).toThrow(expected);
-// });
+test.each([
+  ['A', 'Swordsman', new Error("Имя должно быть не менее 2 и не более 10 символов")],
+  ['Abrakadabra', 'Swordsman', new Error("Имя должно быть не менее 2 и не более 10 символов")],
+  ['Zombie', 'Abrakadabra', new Error("Тип не найден")]
+])// eslint-disable-next-line
+('testin throws Error with %s name and %s type', (name, type, expected) => {
+  function result() {
+    new Swordsman(name, type);
+  }
+  expect(result).toThrow(expected);
+});
